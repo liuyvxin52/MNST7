@@ -36,8 +36,8 @@ int main(){
         L1 = pre[x[i].id];//当前元素的前驱
         if(L1) L2 = pre[L1];//当前元素的前驱的前驱
         L2 = -1;
-        r1 = nxt[x[i].id];
-        if(r1 != n + 1) r2 = nxt[r1];
+        r1 = nxt[x[i].id];//当前元素的后继
+        if(r1 != n + 1) r2 = nxt[r1];//当前元素的后继的后继
         else r2 = -1;
         if(L2 != -1) ans += (L1 - L2) * (r1 - x[i].id) * i;//计算左边逆序对的贡献
         if(r2 != -1) ans += (r2 - r1) * (x[i].id - L1) * i;//计算右边逆序对的贡献
