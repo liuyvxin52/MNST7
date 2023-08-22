@@ -23,10 +23,15 @@ int main(){
     scanf("%d", &n);//输入元素个数
     for(int i = 1; i <= n; i++){
         scanf("%d", &x[i]);//输入元素值
-        x[i].id = i;//存入序号i
+        x[i].id = /*1->*/i/*<-1*/;//存入序号i
         pre[i] = i - 1;
         nxt[i] = i + 1;
     }
     nxt[0] = 1;
-    pre[] = ;
+    pre[n + 1] = n;
+    /*2->*/sort(x + 1, x + n + 1, cmp)/*<-2*/;
+    LL ans = 0;
+    for(i = 1; i <= n; i++){
+        
+    }
 }
