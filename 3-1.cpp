@@ -35,7 +35,7 @@ int main(){
         LL L1, L2, r1, r2;
         L1 = pre[x[i].id];//当前元素的前驱
         if(L1) L2 = pre[L1];//当前元素的前驱的前驱
-        L2 = -1;
+        else L2 = -1;
         r1 = nxt[x[i].id];//当前元素的后继
         if(r1 != n + 1) r2 = nxt[r1];//当前元素的后继的后继
         else r2 = -1;
