@@ -11,7 +11,7 @@ struct T{
 } x[MAXN];
 int pre[MAXN], nxt[MAXN];
 
-int cmp(T t1, T t2) { return ti.v < t2.v; }//从小到大排序
+int cmp(T t1, T t2) { return t1.v < t2.v; }//从小到大排序
 
 void del(int p){
     int L = pre[p], r = nxt[p]; //L和r分别存放当前元素的前缀和后缀
@@ -21,8 +21,8 @@ void del(int p){
 int main(){
     int m, n, i, j, k;
     scanf("%d", &n);//输入元素个数
-    for(int i = 1; i <= n; i++){
-        scanf("%d", &x[i]);//输入元素值
+    for(i = 1; i <= n; i++){
+        scanf("%d", &x[i].v);//输入元素值
         x[i].id = /*1->*/i/*<-1*/;//存入序号i
         pre[i] = i - 1;
         nxt[i] = i + 1;
@@ -36,6 +36,9 @@ int main(){
         L1 = pre[x[i].id];//当前元素的前驱
         if(L1) L2 = pre[L1];//当前元素的前驱的前驱
         L2 = -1;
+        r1 = nxt[x[i].id];
+        if(r1 != n + 1) r2 = nxt[r1];
+        else r2 = -1;
         if(L2 != -1) ans += (L1 - L2) * (r1 - x[i].id) * i;//计算左边逆序对的贡献
         if(r2 != -1) ans += (r2 - r1) * (x[i].id - L1) * i;//计算右边逆序对的贡献
         del(x[i].id);//删除当前元素，保证下次循环不再考虑
